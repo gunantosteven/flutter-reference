@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           fillColor: Colors.red,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-              constraints: BoxConstraints.tightFor(height: 50.0, width: 100.0),
+          constraints: BoxConstraints.tightFor(height: 50.0, width: 100.0),
         )),
       ),
     );
