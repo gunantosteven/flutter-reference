@@ -1,5 +1,5 @@
 # flutter-reference
-Flutter reference is my reference about learning flutter from scratch. It contains many flutter projects.
+Flutter reference is my reference about learning flutter from scratch. It contains many example of flutter projects, resources, helpful link, etc.
 
 ## Useful Tools and Resources
 
