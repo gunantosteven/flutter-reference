@@ -11,37 +11,71 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.teal,
         body: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 100.0,
-                height: double.infinity,
-                color: Colors.red,
-                child: Text('Container 1'),
+              CircleAvatar(
+                radius: 50.0,
+                backgroundImage: AssetImage('images/steven.jpg'),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.yellow,
-                    child: Text('Container2'),
-                  ),
-                  Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.green,
-                    child: Text('Container4'),
-                  ),
-                ],
+              Text(
+                'Steven Gunanto',
+                style: TextStyle(
+                    fontFamily: 'Pacifico',
+                    fontSize: 40.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
               ),
-              Container(
-                width: 100.0,
-                height: double.infinity,
-                color: Colors.blue,
-                child: Text('Container3'),
+              Text(
+                'FLUTTER DEVELOPER',
+                style: TextStyle(
+                  fontFamily: 'Source Sans Pro',
+                  fontSize: 20.0,
+                  color: Colors.teal.shade100,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.5,
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: Colors.teal.shade100,
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.phone,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    '+44 123 456 789',
+                    style: TextStyle(
+                        color: Colors.teal,
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 20.0),
+                  ),
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.email,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    'steven@email.com',
+                    style: TextStyle(
+                        color: Colors.teal,
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 20.0),
+                  ),
+                ),
               ),
             ],
           ),
