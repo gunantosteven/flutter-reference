@@ -55,53 +55,45 @@ class _PriceScreenState extends State<PriceScreen> {
 
   void updateCoinPrice() async {
     setState(() {
-      setLastPriceToDefault();
+      // Set last Prices to ?
+      for (int i = 0; i < cryptoList.length; i++) {
+        lastPrices[i] = '?';
+      }
     });
     for (String crypto in cryptoList) {
       getLastPrice(crypto, selectedCurrency);
     }
   }
 
-  void getLastPrice(String coin, String currency) async {
-    var coinBTC = await coinData.getCointData('$coin$currency');
-    String lastPrice;
-    if (coinBTC != null && coinBTC['last'] != null) {
-      lastPrice = coinBTC['last'].toStringAsFixed(2);
-    } else {
-      lastPrice = 'error';
-    }
+  void getLastPrice(String crypto, String currency) async {
+    String lastPrice = await coinData.getCointData('$crypto$currency');
     if (currency != selectedCurrency) {
       return;
     }
     setState(() {
       for (int i = 0; i < cryptoList.length; i++) {
-        if (cryptoList[i] == coin) {
+        if (cryptoList[i] == crypto) {
           lastPrices[i] = lastPrice;
         }
       }
     });
   }
 
-  List<Widget> getPriceConverterCards() {
-    List<PriceConverterCard> cards = [];
+  List<Widget> makeCards() {
+    List<CryptoCard> cards = [];
     for (int i = 0; i < cryptoList.length; i++) {
-      cards.add(PriceConverterCard(
+      cards.add(CryptoCard(
           priceConverter:
               '1 ${cryptoList[i]} = ${lastPrices[i]} $selectedCurrency'));
     }
     return cards;
   }
 
-  void setLastPriceToDefault() {
-    for (int i = 0; i < cryptoList.length; i++) {
-      lastPrices[i] = '?';
-    }
-  }
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    // First initializtion
     for (int i = 0; i < cryptoList.length; i++) {
       lastPrices.add('?');
     }
@@ -120,7 +112,7 @@ class _PriceScreenState extends State<PriceScreen> {
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: getPriceConverterCards(),
+            children: makeCards(),
           ),
           Container(
             height: 150.0,
@@ -135,8 +127,8 @@ class _PriceScreenState extends State<PriceScreen> {
   }
 }
 
-class PriceConverterCard extends StatelessWidget {
-  const PriceConverterCard({
+class CryptoCard extends StatelessWidget {
+  const CryptoCard({
     Key key,
     @required this.priceConverter,
   }) : super(key: key);
