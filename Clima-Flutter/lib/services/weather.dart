@@ -1,5 +1,5 @@
 import 'package:clima/services/location.dart';
-import 'package:clima/services/networking.dart';
+import 'file:///Users/Ungapps/Documents/MyProjects/flutter-reference/bitcoin-ticker-flutter/lib/services/networking.dart';
 
 const apiKey = 'f5ad6f770512abd4a919db8cbbd98172';
 const openWeatherMAPURL = 'https://api.openweathermap.org/data/2.5/weather';
